@@ -3,7 +3,7 @@
 ### Game1 -- 24 Game
 #### 游戏介绍:这是一个双方都能参与的游戏,根据"题库"出的题(四个数字,不可重复使用),利用加减乘除操作符(可重复使用),率先拼凑出答案为24,即可获胜,双方操作互不影响,一方先得出答案,即此题结束,谁率先获得3分,即获得最终胜利!
 #### 操作步骤:拖动数字到下面的正方形方框里面,拖动操作符到下面的长方形方框里面,算式完整后,点击OK按钮,即可获取结果,若你的答案错误,则需要点击Reset按钮,进行重新答题,若双方认为题库出的题不能得到24结果(此题无解),则可点击Pass按钮进行跳过该题.一道题结束后,则会弹出比分框,点击继续既可进行下一题.
-![General preferences pane](https://raw.githubusercontent.com/SpringAndSummer/Game/master/WechatIMG96.jpeg){:height="50%" width="50%"}
+![General preferences pane-w150](https://raw.githubusercontent.com/SpringAndSummer/Game/master/WechatIMG96.jpeg)
 
 ### Game2 -- Ferris
 #### 游戏介绍:这是一个模仿"见缝插针"的游戏,同样屏幕分成两部分,红方和蓝方,对转动的轮盘就行"扎针",当"针"发生重叠,则此局游戏结束,双方谁率先获取三分,则最终获胜.

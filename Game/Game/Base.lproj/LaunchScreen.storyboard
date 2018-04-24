@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="EHf-IW-A2E">
+            <objects>
+                <viewController id="01J-lp-oVM" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="rkp-9P-YxS"/>
+                        <viewControllerLayoutGuide type="bottom" id="BGa-0v-SQ2"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Battle" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sD0-2M-qRx">
+                                <rect key="frame" x="100" y="414" width="174" height="81"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="81" id="TyO-GJ-MGZ"/>
+                                    <constraint firstAttribute="width" constant="174" id="Yoh-gJ-JHl"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="SinhalaSangamMN" family="Sinhala Sangam MN" pointSize="40"/>
+                                <color key="textColor" red="0.72051084844559588" green="0.72051084844559588" blue="0.72051084844559588" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star.png" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hCN-If-8WI">
+                                <rect key="frame" x="89" y="161" width="196" height="180"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="180" id="EIc-bn-Dx1"/>
+                                    <constraint firstAttribute="width" constant="196" id="Z7C-bv-Qu6"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.7250260227563009" green="0.91142402059809813" blue="0.99792701005935669" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="sD0-2M-qRx" secondAttribute="trailing" constant="85" id="Ebp-JJ-tDf"/>
+                            <constraint firstItem="hCN-If-8WI" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" constant="73" id="J26-Xt-gIe"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="hCN-If-8WI" secondAttribute="trailing" constant="74" id="JCM-o4-mkO"/>
+                            <constraint firstItem="sD0-2M-qRx" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" constant="84" id="L09-x6-6Z8"/>
+                            <constraint firstItem="sD0-2M-qRx" firstAttribute="top" secondItem="hCN-If-8WI" secondAttribute="bottom" constant="73" id="Zq9-fl-ciY"/>
+                            <constraint firstItem="hCN-If-8WI" firstAttribute="top" secondItem="rkp-9P-YxS" secondAttribute="bottom" constant="141" id="mOa-Tv-0U9"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="52" y="374.66266866566718"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="star.png" width="100" height="91"/>
+    </resources>
+</document>

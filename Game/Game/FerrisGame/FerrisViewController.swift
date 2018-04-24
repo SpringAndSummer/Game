@@ -16,9 +16,7 @@ class FerrisViewController: BaseViewController {
     var flagBlue:Bool!  //是否轮到蓝方
     var score1:Int!     //蓝方分数1
     var score2:Int!     //红方分数2
-    
-    var ferrisResultView:FerrisResultView!
-    var score:UILabel!
+
     var arrowStrokePath:UIBezierPath!
     
     var blueScoreLabel:UILabel!
@@ -46,23 +44,15 @@ class FerrisViewController: BaseViewController {
         
         self.view.addSubview(self.stateBlue)
         self.view.addSubview(self.statePink)
-        
-        self.layout()
 
         self.flagBlue = (arc4random() % 2 == 1) ? true : false
         self.score1 = 0
         self.score2 = 0
-        
-        self.score = UILabel.init(frame: CGRect.init(x: 0, y: 0, width: kCentralAxisLayerWidth, height: kCentralAxisLayerWidth))
-        score.center = self.view.center
-        self.score.textAlignment = .center
-        self.score.textColor = UIColor.white
+    
         self.view.addSubview(self.score)
         self.showScore()
         
         weak var weakeSelf = self
-        self.ferrisResultView = FerrisResultView.init(frame: CGRect.init(x: 0, y: 0, width: ScreenWidth, height: ScreenHeight))
-        self.ferrisResultView.isHidden = true
         self.ferrisResultView.nextBlock = {
             weakeSelf?.restartGame()
             weakeSelf?.ferrisResultView.isHidden = true
@@ -74,6 +64,7 @@ class FerrisViewController: BaseViewController {
         self.ferrisGameOverView.endBlock = {
             weakeSelf?.navigationController?.popViewController(animated: true)
         }
+        
         self.ferrisGameOverView.resetBlock = {
             weakeSelf?.score1 = 0
             weakeSelf?.score2 = 0
@@ -86,6 +77,7 @@ class FerrisViewController: BaseViewController {
         }
         self.view.addSubview(self.ferrisGameOverView)
         self.stateChane()
+        self.layout()
     }
     
     @objc func backClick() -> Void {
@@ -141,7 +133,13 @@ class FerrisViewController: BaseViewController {
         
         self.statePink.frame = CGRect.init(x: ScreenWidth - 30, y: ScreenHeight - 30, width: 30, height: 30)
         self.stateBlue.frame = CGRect.init(x: 0, y: 0, width: 30, height: 30)
+        
+        self.score.frame = CGRect.init(x: 0, y: 0, width: kCentralAxisLayerWidth, height: kCentralAxisLayerWidth)
+        self.score.center = self.view.center
+        
+        self.ferrisResultView.frame = CGRect.init(x: 0, y: 0, width: ScreenWidth, height: ScreenHeight)
     }
+    
     lazy var pinkView: UIView = {
         () -> UIView in
         let pinView = UIView()
@@ -230,11 +228,9 @@ class FerrisViewController: BaseViewController {
     
     //检测是否碰撞
     func isCrash(point:CGPoint) -> Bool {
-        print("===================================")
         for tmpPomit in self.strokePoints {
             let prePoint = tmpPomit.cgPointValue
             let dis = sqrt(pow(prePoint.x - point.x, 2) + pow(prePoint.y - point.y, 2))
-            print("dis === \(dis)")
             if(dis <= 2 * kTopRoundRadius){
                 self.centralAxisLayer.pauseAnimation()
                 return true
@@ -250,8 +246,8 @@ class FerrisViewController: BaseViewController {
         self.strokePoints.removeAll()
         self.centralAxisLayer.path = self.arrowStrokePath.cgPath
         self.centralAxisLayer.resumeAnimation()
-//        self.centralAxisLayer.add(self.rotation, forKey: "rotation")
     }
+    
     lazy var centralAxisLayer:CAShapeLayer = {
         let tmpLayer = CAShapeLayer()
         tmpLayer.backgroundColor = UIColor.black.cgColor
@@ -265,13 +261,6 @@ class FerrisViewController: BaseViewController {
     
     func createArrowStrokePath() -> UIBezierPath {
         let strokePath = UIBezierPath()
-//        let pointCenter = CGPoint.init(x: kCentralAxisLayerWidth / 2.0, y: kCentralAxisLayerWidth)
-//        strokePath.move(to: pointCenter)
-//        let endPoint = CGPoint.init(x: pointCenter.x, y: pointCenter.y + kStrokeRoundRadius - kCentralAxisLayerWidth / 2.0)
-//        strokePath.addLine(to: endPoint)
-//        strokePath.move(to: endPoint)
-//        strokePath.addArc(withCenter: endPoint, radius: kTopRoundRadius, startAngle: 0, endAngle: CGFloat(Double.pi * 2.0), clockwise: true)
-//        self.strokePoints.append(NSValue.init(cgPoint: endPoint))
         return strokePath
     }
     
@@ -366,6 +355,7 @@ class FerrisViewController: BaseViewController {
         statePink.isHidden = true
         return statePink
     }()
+    
     lazy var stateBlue:UIImageView! = {
         let stateBlue = UIImageView()
         stateBlue.backgroundColor = pinColor
@@ -382,6 +372,7 @@ class FerrisViewController: BaseViewController {
             self.statePink.isHidden = true
         }
     }
+    
     func createScoreLabel() -> UILabel {
         let label = UILabel()
         label.textColor = d4Color
@@ -389,13 +380,28 @@ class FerrisViewController: BaseViewController {
         label.font = UIFont.systemFont(ofSize: 20)
         return label
     }
+    
     func showScore() -> Void {
         self.score.attributedText = NSAttributedString.createScoreString(score1: self.score1, score2: self.score2)
         self.pinkScoreLabel.text = String.init(format: "%zd", self.score1)
         self.blueScoreLabel.text = String.init(format: "%zd", self.score2)
     }
+    
+    lazy var score:UILabel! = {
+        let score = UILabel.init(frame: CGRect.init(x: 0, y: 0, width: kCentralAxisLayerWidth, height: kCentralAxisLayerWidth))
+        score.center = self.view.center
+        score.textAlignment = .center
+        score.textColor = UIColor.white
+        return score
+    }()
+    
+    lazy var ferrisResultView:FerrisResultView! = {
+        let  ferrisResultView = FerrisResultView()
+        ferrisResultView.isHidden = true
+        return ferrisResultView
+    }()
+    
     override var prefersStatusBarHidden: Bool {
         return true
     }
-    
 }

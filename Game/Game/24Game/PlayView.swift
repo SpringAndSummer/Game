@@ -74,7 +74,6 @@ class PlayView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.isUserInteractionEnabled = true
-        self.isExclusiveTouch = true
         self.ex1 = self.createEx()
         self.ex2 = self.createEx()
         self.ex3 = self.createEx()

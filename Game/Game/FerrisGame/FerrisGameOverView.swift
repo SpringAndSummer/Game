@@ -97,7 +97,7 @@ class FerrisGameOverView: UIView {
         let btnHeight = self.pinkView.height * 0.5
         self.endBtn.frame = CGRect.init(x: btnWidth * 0.5 , y: btnHeight * 0.5, width: btnWidth, height: btnHeight)
         self.resetBtn.frame = CGRect.init(x: self.bgView.width * 0.5 + btnWidth * 0.5 , y: btnHeight * 0.5, width: btnWidth, height: btnHeight)
-    }
+    }                                       
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

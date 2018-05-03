@@ -55,6 +55,10 @@ class ChoseGameViewController: BaseViewController {
         back.titleLabel?.font = UIFont.systemFont(ofSize: 25)
         back.setTitle("Back", for: .normal)
         self.view.addSubview(back)
+        
+        var a:[String]? = [String]()
+        a?.append("xixiix")
+        print(a!)
     }
     
     func createGameBtn(name:String) -> UIButton {

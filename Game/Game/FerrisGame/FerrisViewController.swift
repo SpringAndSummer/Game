@@ -30,6 +30,7 @@ class FerrisViewController: BaseViewController {
         self.view.addSubview(self.back)
         
         self.blueScoreLabel = self.createScoreLabel()
+        self.blueScoreLabel.transform = CGAffineTransform(rotationAngle: CGFloat(Double.pi))
         self.pinkScoreLabel = self.createScoreLabel()
         self.view.addSubview(self.blueScoreLabel)
         self.view.addSubview(self.pinkScoreLabel)
@@ -56,7 +57,7 @@ class FerrisViewController: BaseViewController {
         self.ferrisResultView.nextBlock = {
             weakeSelf?.restartGame()
             weakeSelf?.ferrisResultView.isHidden = true
-            weakeSelf?.flagBlue = true
+            weakeSelf?.flagBlue = (arc4random() % 2 == 1) ? true : false
             weakeSelf?.stateChane()
         }
         self.view.addSubview(self.ferrisResultView)
@@ -231,7 +232,7 @@ class FerrisViewController: BaseViewController {
         for tmpPomit in self.strokePoints {
             let prePoint = tmpPomit.cgPointValue
             let dis = sqrt(pow(prePoint.x - point.x, 2) + pow(prePoint.y - point.y, 2))
-            if(dis <= 2 * kTopRoundRadius){
+            if(dis <= 2 * kTopRoundRadius + 1){
                 self.centralAxisLayer.pauseAnimation()
                 return true
             }

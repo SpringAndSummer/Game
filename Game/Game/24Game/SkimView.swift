@@ -63,7 +63,7 @@ class SkimView: UIView {
         self.okBtn.setTitle("YES", for: .normal)
         self.pinkView.addSubview(self.okBtn)
     }
-    
+
     @objc func noBtnClick() -> Void {
         if((self.noBlock) != nil){
             self.noBlock!()

@@ -65,6 +65,12 @@ class GameOverView: UIView {
         self.resetBtn.addTarget(self, action: #selector(okBtnClick), for: .touchUpInside)
         self.resetBtn.setTitle("Again", for: .normal)
         self.pinkView.addSubview(self.resetBtn)
+        
+        
+        
+        
+        
+    
     }
     
     @objc func noBtnClick() -> Void {

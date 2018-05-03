@@ -22,7 +22,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         nav.navigationBar.isHidden = true
         self.window?.rootViewController = nav
         self.window?.makeKeyAndVisible()
-        UIView.appearance().isExclusiveTouch = true
         return true
     }
 

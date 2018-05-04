@@ -12,7 +12,12 @@ class ChoseGameViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = blueColor
+        
+        let bgImage = UIImageView.init(frame: CGRect.init(x: 0, y: 0, width: ScreenWidth, height: ScreenHeight))
+        bgImage.contentMode = .scaleAspectFill
+        bgImage.clipsToBounds = true
+        bgImage.image = UIImage.init(named: "bg.jpeg")
+        self.view.addSubview(bgImage)
         
         let bgView = UIView.init(frame: CGRect.init(x: (ScreenWidth - 250) * 0.5, y: (ScreenHeight - 160 - 100) * 0.5, width: 250, height: 160))
         bgView.layer.cornerRadius = 6
@@ -24,11 +29,6 @@ class ChoseGameViewController: BaseViewController {
         let gameWidth:CGFloat = bgView.width - 20
         let gameHeight:CGFloat = 60
 
-//        let game1 = self.createGameBtn(name: "Da Vincl Code")
-//        game1.tag = 1
-//        game1.frame = CGRect.init(x: 10, y: 20, width: gameWidth, height: gameHeight)
-//        bgView.addSubview(game1)
-        
         let game2 = self.createGameBtn(name: "24 Game")
         game2.tag = 2
         game2.frame = CGRect.init(x: 10, y: marginY, width: gameWidth, height: gameHeight)
@@ -38,12 +38,7 @@ class ChoseGameViewController: BaseViewController {
         game3.tag = 3
         game3.frame = CGRect.init(x: 10, y: game2.bottom + marginY, width: gameWidth, height: gameHeight)
         bgView.addSubview(game3)
-        
-//        let game4 = self.createGameBtn(name: "Piano")
-//        game4.tag = 4
-//        game4.frame = CGRect.init(x: 10, y: game3.bottom + marginY, width: gameWidth, height: gameHeight)
-//        bgView.addSubview(game4)
-        
+
         let back = UIButton.init(frame: CGRect.init(x: (ScreenWidth - (bgView.width - 30)) * 0.5, y: bgView.bottom + 30, width: bgView.width - 30, height: 50))
         back.addTarget(self, action: #selector(backClick), for: .touchUpInside)
         back.layer.cornerRadius = 6

@@ -45,6 +45,7 @@ class FerrisViewController: BaseViewController {
         
         self.view.addSubview(self.stateBlue)
         self.view.addSubview(self.statePink)
+        self.stateBlue.transform = CGAffineTransform(rotationAngle: CGFloat(Double.pi))
 
         self.flagBlue = (arc4random() % 2 == 1) ? true : false
         self.score1 = 0
@@ -132,8 +133,8 @@ class FerrisViewController: BaseViewController {
         
         self.ferrisGameOverView.frame = CGRect.init(x: 0, y: 0, width: ScreenWidth, height: ScreenHeight)
         
-        self.statePink.frame = CGRect.init(x: ScreenWidth - 30, y: ScreenHeight - 30, width: 30, height: 30)
-        self.stateBlue.frame = CGRect.init(x: 0, y: 0, width: 30, height: 30)
+        self.statePink.frame = CGRect.init(x: (ScreenWidth - 37) * 0.5, y: ScreenHeight - 24 - 22, width: 37, height: 24)
+        self.stateBlue.frame = CGRect.init(x: (ScreenWidth - 37) * 0.5, y: 22, width: 37, height: 24)
         
         self.score.frame = CGRect.init(x: 0, y: 0, width: kCentralAxisLayerWidth, height: kCentralAxisLayerWidth)
         self.score.center = self.view.center
@@ -352,14 +353,14 @@ class FerrisViewController: BaseViewController {
     
     lazy var statePink:UIImageView! = {
         let statePink = UIImageView()
-        statePink.backgroundColor = blueColor
+        statePink.image = UIImage.init(named: "flagRed")
         statePink.isHidden = true
         return statePink
     }()
     
     lazy var stateBlue:UIImageView! = {
         let stateBlue = UIImageView()
-        stateBlue.backgroundColor = pinColor
+        stateBlue.image = UIImage.init(named: "flagBlue")
         stateBlue.isHidden = true
         return stateBlue
     }()
